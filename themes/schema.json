@@ -7,9 +7,33 @@
   "definitions": {
     "color": {
       "type": "string",
-      "pattern": "^(#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})|black|red|green|yellow|blue|magenta|cyan|white|default|darkGray|lightRed|lightGreen|lightYellow|lightBlue|lightMagenta|lightCyan|lightWhite)$",
       "title": "Color string",
-      "description": "https://ohmyposh.dev/docs/configure#colors"
+      "description": "https://ohmyposh.dev/docs/configure#colors",
+      "oneOf": [
+        { "pattern": "^(#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" },
+        {
+          "enum": [
+            "black",
+            "red",
+            "green",
+            "yellow",
+            "blue",
+            "magenta",
+            "cyan",
+            "white",
+            "default",
+            "darkGray",
+            "lightRed",
+            "lightGreen",
+            "lightYellow",
+            "lightBlue",
+            "lightMagenta",
+            "lightCyan",
+            "lightWhite",
+            "transparent"
+          ]
+        }
+      ]
     },
     "display_version": {
       "type": "boolean",
@@ -1186,6 +1210,27 @@
       "default": [],
       "description": "https://ohmyposh.dev/docs/configure",
       "items": { "$ref": "#/definitions/block" }
+    },
+    "colors": {
+      "type": "array",
+      "title": "Colors",
+      "default": [],
+      "description": "https://ohmyposh.dev/docs/color",
+      "items": {
+        "type": "object",
+        "description": "https://ohmyposh.dev/docs/configure#colors",
+        "properties": {
+          "name": {
+            "type": "string",
+            "$id": "#colorName",
+            "title": "Block type",
+            "description": "https://ohmyposh.dev/docs/configure#type",
+            "enum": ["prompt", "newline"],
+            "default": "prompt"
+          },
+          "color": { "$ref": "#/definitions/color" }
+        }
+      }
     }
   }
 }
