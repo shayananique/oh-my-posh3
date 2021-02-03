@@ -1,32 +1,32 @@
 ---
-id: golang
-title: Golang
-sidebar_label: Golang
+id: julia
+title: Julia
+sidebar_label: Julia
 ---
 
 ## What
 
-Display the currently active golang version when a folder contains golang files.
+Display the currently active ruby version when a folder contains ruby files.
 
 ## Sample Configuration
 
 ```json
 {
-  "type": "go",
+  "type": "ruby",
   "style": "powerline",
   "powerline_symbol": "\uE0B0",
   "foreground": "#ffffff",
-  "background": "#7FD5EA",
+  "background": "#4063D8",
   "properties": {
-    "prefix": " \uFCD1 "
+    "prefix": " \uE791 "
   }
 }
 ```
 
 ## Properties
 
-- display_version: `boolean` - display the golang version - defaults to `true`
+- display_version: `boolean` - display the ruby version - defaults to `true`
 - missing_command_text: `string` - text to display when the command is missing - defaults to empty
 - display_mode: `string` - determines when the segment is displayed
   - `always`: the segment is always displayed
-  - `files`: the segment is only displayed when `*.go` or `go.mod` files are present (default)
+  - `files`: the segment is only displayed when `*.rb`, `Gemfile` or `Rakefile` files are present (default)
